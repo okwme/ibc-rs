@@ -1,7 +1,12 @@
 ## Unreleased
 
+> Nothing yet.
+
+## v0.3.0
+*May 7h, 2021*
+
 Special thanks to external contributors:
-Jongwhan Lee (@leejw51crypto) ([#878]).
+  - Jongwhan Lee (@leejw51crypto) ([#878])
 
 > [TODO: high level summary]
 

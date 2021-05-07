@@ -5,10 +5,14 @@
 ## v0.3.0
 *May 7h, 2021*
 
-Special thanks to external contributors:
-  - Jongwhan Lee (@leejw51crypto) ([#878])
+Special thanks to Jongwhan Lee (@leejw51crypto) for his contributions ([#878]).
 
-> [TODO: high level summary]
+This release mostly focuses on improving the experiment multi-paths relayer (`start-multi` command),
+which has been made more resilient against nodes going down, and is now able to clear pending packets
+and periodically refresh IBC clients. The relayer now also supports [ICS 027 (Interchain Accounts)][ics27].
+
+[ics27]: https://github.com/cosmos/ibc/blob/master/spec/app/ics-027-interchain-accounts/README.md
+
 
 ### FEATURES
 
@@ -26,8 +30,8 @@ Special thanks to external contributors:
 
 - [ibc-relayer]
   - Change the default for client creation to allow governance recovery in case of expiration or misbehaviour ([#785])
-  - Use a single supervisor to subscribe to all configured chains ([#862])
-  - The relayer is now more resilient to a node not being up or going down, and will attempt to reconnect ([#871])
+  - Use a single supervisor in `start-multi` to subscribe to all configured chains ([#862])
+  - The `start-multi` command is now more resilient to a node not being up or going down, and will attempt to reconnect ([#871])
 
 ### BUG FIXES
 

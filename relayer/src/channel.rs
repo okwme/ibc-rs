@@ -175,7 +175,7 @@ impl Channel {
             .map_err(|e| ChannelError::QueryError(counterparty_chain.id(), e))?;
 
         let connection_id = channel_event_attributes.connection_id.clone();
-        let connection = chain.query_connection(&connection_id, Height::zero())?;
+        let connection = chain.query_connection(&connection_id)?;
         let connection_counterparty = connection.counterparty();
 
         let counterparty_connection_id = connection_counterparty
@@ -223,7 +223,7 @@ impl Channel {
             WorkerChannelError::MissingConnectionHops(channel.src_channel_id.clone(), chain.id())
         })?;
 
-        let a_connection = chain.query_connection(&a_connection_id, Height::zero())?;
+        let a_connection = chain.query_connection(&a_connection_id)?;
         let b_connection_id = a_connection
             .counterparty()
             .connection_id()
@@ -703,7 +703,7 @@ impl Channel {
 
         // Connection must exist on destination
         self.dst_chain()
-            .query_connection(self.dst_connection_id(), Height::zero())
+            .query_connection(self.dst_connection_id())
             .map_err(|e| ChannelError::QueryError(self.dst_chain().id(), e))?;
 
         let query_height = self
@@ -806,7 +806,7 @@ impl Channel {
 
         // Connection must exist on destination
         self.dst_chain()
-            .query_connection(self.dst_connection_id(), Height::zero())
+            .query_connection(self.dst_connection_id())
             .map_err(|e| ChannelError::QueryError(self.dst_chain().id(), e))?;
 
         let query_height = self
@@ -897,7 +897,7 @@ impl Channel {
 
         // Connection must exist on destination
         self.dst_chain()
-            .query_connection(self.dst_connection_id(), Height::zero())
+            .query_connection(self.dst_connection_id())
             .map_err(|e| ChannelError::QueryError(self.dst_chain().id(), e))?;
 
         let query_height = self
@@ -1039,7 +1039,7 @@ impl Channel {
 
         // Connection must exist on destination
         self.dst_chain()
-            .query_connection(self.dst_connection_id(), Height::zero())
+            .query_connection(self.dst_connection_id())
             .map_err(|e| ChannelError::QueryError(self.dst_chain().id(), e))?;
 
         let query_height = self
